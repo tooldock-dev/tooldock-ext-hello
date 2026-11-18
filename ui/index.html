@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>Hello 範例</title>
+  <!-- 平台共用主題（自動跟隨深色 / 淺色），提供 button、.card、.badge、table.grid 等樣式 -->
+  <link rel="stylesheet" href="tooldock://sdk/ui-base.css">
+  <style>
+    body { padding: 24px 28px; max-width: 760px; }
+    .card { margin-bottom: 16px; }
+    #notes { list-style: none; margin: 12px 0 0; padding: 0; }
+    #notes li { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+    #notes li span { flex: 1; }
+    #notes li time { font-size: 11px; color: var(--fg-faint); }
+    #notes li button { min-height: 22px; padding: 0 8px; }
+  </style>
+</head>
+<body>
+  <h1>🧩 Hello 範例</h1>
+  <p class="muted">ToolDock 擴充範例：示範畫面、後端、儲存與自動發佈</p>
+
+  <div class="card stack">
+    <h3>呼叫後端</h3>
+    <div class="row">
+      <input id="name" placeholder="輸入名字">
+      <button id="greet">打招呼</button>
+    </div>
+    <div id="greeting" class="muted"></div>
+  </div>
+
+  <div class="card">
+    <h3>筆記（儲存在 ctx.storage，後端推送更新）</h3>
+    <div class="row">
+      <input id="note" placeholder="新增一則筆記" style="flex:1">
+      <button id="add">新增</button>
+      <button id="export" class="secondary">匯出…</button>
+    </div>
+    <ul id="notes"></ul>
+  </div>
+
+  <!-- 提供 window.tooldock -->
+  <script src="tooldock://sdk/ui-sdk.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

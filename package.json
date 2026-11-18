@@ -1,0 +1,55 @@
+{
+  "name": "hello-example",
+  "version": "0.1.0",
+  "description": "ToolDock 擴充範例：示範畫面、後端、儲存與自動發佈",
+  "main": "backend/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "tooldock-ext dev",
+    "debug": "tooldock-ext dev --inspect",
+    "validate": "tooldock-ext validate",
+    "pack": "tooldock-ext pack",
+    "install-local": "tooldock-ext install"
+  },
+  "tooldock": {
+    "id": "hello-example",
+    "displayName": "Hello 範例",
+    "description": "ToolDock 擴充範例：示範畫面、後端、儲存與自動發佈",
+    "icon": "🧩",
+    "engine": "^1.0.0",
+    "activationEvents": [],
+    "contributes": {
+      "views": [
+        {
+          "id": "helloExample.main",
+          "title": "Hello 範例",
+          "icon": "🧩",
+          "entry": "ui/index.html"
+        }
+      ],
+      "commands": [
+        {
+          "id": "helloExample.hello",
+          "title": "Hello 範例：打招呼"
+        }
+      ],
+      "configuration": {
+        "helloExample.greeting": {
+          "type": "string",
+          "default": "哈囉",
+          "title": "問候語",
+          "description": "後端回覆時使用的問候語"
+        }
+      },
+      "lifecycle": {
+        "app:before-quit": "onBeforeQuit"
+      }
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tooldock-cli": "^1.1.0",
+    "tooldock-types": "^1.0.0",
+    "@types/node": "^22.0.0"
+  }
+}
